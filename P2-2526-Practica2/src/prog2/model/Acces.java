@@ -1,6 +1,22 @@
 package prog2.model;
 
-public class Acces implements InAcces{
+import prog2.vista.ExcepcioCamping;
+
+import java.util.Iterator;
+
+public abstract class Acces implements InAcces{
+    private String nom;
+    private boolean accessibilitat;
+    private boolean estat;
+    private LlistaAllotjaments llistaAllotjaments;
+
+    public Acces(String nom, boolean accessibilitat, LlistaAllotjaments llistaAllotjaments) {
+        this.nom = nom;
+        this.accessibilitat = accessibilitat;
+        this.llistaAllotjaments = llistaAllotjaments;
+        this.estat = true;
+    }
+
     @Override
     public void afegirAllotjament(Allotjament allotjament) {
 
@@ -23,16 +39,36 @@ public class Acces implements InAcces{
 
     @Override
     public String getNom() {
-        return "";
+        return nom;
     }
 
     @Override
     public boolean getEstat() {
-        return false;
+        return estat;
     }
 
     @Override
     public LlistaAllotjaments getAAllotjaments() {
-        return null;
+        return llistaAllotjaments;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setEstat(boolean estat) {
+        this.estat = estat;
+    }
+
+    public void setLlistaAllotjaments(LlistaAllotjaments llistaAllotjaments) {
+        this.llistaAllotjaments = llistaAllotjaments;
+    }
+
+    @Override
+    public String toString() {
+        String info = "Nom: " + nom + ", Accessibilitat: " + accessibilitat + ", Estat: " + estat + ", Allotjaments: "
+                + llistaAllotjaments.llistarAllotjaments("Operatiu");
+
+        return info;
     }
 }

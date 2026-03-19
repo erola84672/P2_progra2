@@ -5,7 +5,7 @@ public abstract class Allotjament implements InAllotjament {
     protected String idAllotjament;
     protected long estadaMinimaALTA;
     protected long estadaMinimaBAIXA;
-    protected boolean estatAllotjament;
+    protected String estatAllotjament;
     protected String estatIluminacio;
 
     /**
@@ -20,8 +20,8 @@ public abstract class Allotjament implements InAllotjament {
         this.idAllotjament = idAllotjament;
         this.estadaMinimaBAIXA = estadaMinimaBAIXA;
         this.estadaMinimaALTA = estadaMinimaALTA;
-        this.estatIluminacio = "100";
-        this.estatAllotjament = true;
+        this.estatIluminacio = "100%";
+        this.estatAllotjament = "Operatiu";
     }
 
     @Override
@@ -47,13 +47,16 @@ public abstract class Allotjament implements InAllotjament {
     public void setEstatIluminacio(String estat){
         this.estatIluminacio = estat;
     }
+
     public String getEstatIluminacio(){
         return estatIluminacio;
     }
-    public void setEstatAllotjament(boolean estat){
+
+    public void setEstatAllotjament(String estat){
         this.estatAllotjament = estat;
     }
-    public boolean getEstatAllotjament(){
+
+    public String getEstatAllotjament(){
         return estatAllotjament;
     }
 
@@ -75,9 +78,9 @@ public abstract class Allotjament implements InAllotjament {
         this.estadaMinimaBAIXA = estadaMinimaBAIXA_;
     }
 
-    public boolean correcteFuncionament() {
-        return false;
-    }
+    // public boolean correcteFuncionament() {
+       // return false;
+    //}
 
     /**
      * Passa tota la informació relacionada amb un allotjament a String perquè es pugui imprimir
@@ -94,9 +97,9 @@ public abstract class Allotjament implements InAllotjament {
 
     }
 
-
     @Override
     public void obrirAllotjament() {
-
+        this.estatAllotjament = "Operatiu";
+        this.estatIluminacio = "100%";
     }
 }

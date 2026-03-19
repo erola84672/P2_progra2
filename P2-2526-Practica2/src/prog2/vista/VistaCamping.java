@@ -3,6 +3,7 @@ package prog2.vista;
 import prog2.model.Camping;
 import prog2.model.TascaManteniment;
 
+import java.io.*;
 import java.util.Scanner;
 public class VistaCamping {
     private Camping camping;
@@ -111,8 +112,30 @@ public class VistaCamping {
                     }
                     break;
                 case MENU_PRINCIPAL_OPCIO6:
-                    // Mostrem un missatge indicant que s'ha triat aquesta opciÃ³
-                    System.out.println("Has triat la opciÃ³ 2");
+                    File file = new File("camping.txt");
+                    FileInputStream fis = null;
+                    ObjectInputStream ois = null;
+                    VistaCamping campingai = null;
+                    try {
+                        fis = new FileInputStream(file);
+                        ois = new ObjectInputStream(fis);
+                        campingai = (VistaCamping) ois.readObject();
+
+                    } catch(FileNotFoundException e){
+                        System.out.println("Elfitxernoexisteix");
+                    }catch(IOException e){
+                        System.out.println("El fitxer no IO");
+                    }catch(ClassNotFoundException e){
+                        System.out.println("No em trobo");
+                    }
+                    finally{
+                        try{
+                            fis.close();
+                            ois.close();}
+                        catch(IOException e){
+                            System.out.println("IO TANCANT");
+                        }
+                    }
                     break;
                 case MENU_PRINCIPAL_SUBMENU1:
                     // Cridem el métode de gestió del menú secundari

@@ -13,11 +13,12 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment{
 
     @Override
     public void afegirTascaManteniment(int num, String tipus, Allotjament allotjament, String data, int dies) throws ExcepcioCamping {
-        if (allotjament.getEstatAllotjament().equals("No operatiu")) {
+        if (allotjament.getEstatAllotjament() == false) {
             throw new ExcepcioCamping("L'allotjament ja té una tasca programada");
         }
 
         TascaManteniment novaTasca = new TascaManteniment(num, TascaManteniment.TipusTascaManteniment.valueOf(tipus), allotjament, data, dies);
+        allotjament.tancarAllotjament(novaTasca);
         llistaTasques.add(novaTasca);
 
     }
@@ -54,7 +55,7 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment{
 
         while (itr.hasNext()) {
             TascaManteniment t = itr.next();
-            info += t.toString();
+            info += t.toString() + "\n";
         }
 
         return info;

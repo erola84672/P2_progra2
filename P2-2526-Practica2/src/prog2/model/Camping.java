@@ -9,11 +9,11 @@ public class Camping implements InCamping{
     private LlistaAllotjaments llistaAllotjaments;
     private LlistaTasquesManteniment llistaTasques;
 
-    public Camping(String nom, LlistaTasquesManteniment llistaTasques, LlistaAllotjaments llistaAllotjaments, LlistaAccessos llistaAccessos){
+    public Camping(String nom){
         this.nom = nom;
-        this.llistaAccessos = llistaAccessos;
-        this.llistaAllotjaments = llistaAllotjaments;
-        this.llistaTasques = llistaTasques;
+        this.llistaAccessos = new LlistaAccessos();
+        this.llistaAllotjaments = new LlistaAllotjaments();
+        this.llistaTasques = new LlistaTasquesManteniment();
     }
 
     @Override
@@ -63,8 +63,7 @@ public class Camping implements InCamping{
 
     @Override
     public void afegirTascaManteniment(int num, String tipus, String idAllotjament, String data, int dies) throws ExcepcioCamping {
-        Allotjament a = llistaAllotjaments.getAllotjament(idAllotjament);
-        llistaTasques.afegirTascaManteniment(num, tipus, a, data, dies);
+        llistaTasques.afegirTascaManteniment(num, tipus, llistaAllotjaments.getAllotjament(idAllotjament), data, dies);
         llistaAccessos.actualitzaEstatAccessos();
     }
 

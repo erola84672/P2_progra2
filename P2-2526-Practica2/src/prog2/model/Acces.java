@@ -66,11 +66,11 @@ public abstract class Acces implements InAcces{
         String info = "Nom: " + nom + ", Accessibilitat: " + accessibilitat + ", Estat: " + estat + ", Allotjaments: ";
 
         try {
-            info += llistaAllotjaments.llistarAllotjaments("Obert");
+            info += llistaAllotjaments.llistarAllotjaments("Operatiu");
         } catch (ExcepcioCamping e){}
 
         try {
-            info += llistaAllotjaments.llistarAllotjaments("Tancat");
+            info += llistaAllotjaments.llistarAllotjaments("No operatiu");
         } catch (ExcepcioCamping e) {}
 
         return info;

@@ -87,7 +87,7 @@ public class Menu<TEnum> {
         // Demanem una opció assegurant que sigui correcta
         int opcioInt=-1;
         do {
-            System.out.print("Entra una opcio >> ");
+            System.out.print("Entra una opció >> ");
             opcioInt=sc.nextInt();
             sc.nextLine();
 
@@ -95,7 +95,7 @@ public class Menu<TEnum> {
                 // Passem de l'enter a una opcio i la retornem
                 opcio=_llistaOpcions[opcioInt-1];
             } else {
-                System.err.println("La opció seleccionada no és correcta. Selecciona una opció entre 1 i " + (_llistaOpcions.length));
+                System.err.println("L'opció seleccionada no és correcta. Selecciona una opció entre 1 i " + (_llistaOpcions.length));
             }
         } while(opcio==null);
 

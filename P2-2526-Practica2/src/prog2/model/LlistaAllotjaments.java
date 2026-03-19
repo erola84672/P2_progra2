@@ -30,9 +30,9 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
         String info = "";
         boolean estat;
 
-        if (infoEstat.equals("Obert")) {
+        if (infoEstat.equals("Operatiu")) {
             estat = true;
-        } else if (infoEstat.equals("Tancat")) {
+        } else if (infoEstat.equals("No operatiu")) {
             estat = false;
         } else
             throw new ExcepcioCamping("L'estat és incorrecte");
@@ -41,12 +41,12 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
             Allotjament a = itr.next();
 
             if (a.getEstatAllotjament() == estat) {
-                info += a.toString();
+                info += a.toString() + "\n";
             }
         }
 
         if (info.equals("")) {
-            throw new ExcepcioCamping("No hi ha allotjaments en l'estat " + estat);
+            throw new ExcepcioCamping("No hi ha allotjaments en estat " + infoEstat);
         }
 
         return info;

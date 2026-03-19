@@ -35,13 +35,13 @@ public class LlistaAccessos implements InLlistaAccessos {
             Acces a = itr.next();
 
             if (a.getEstat() == estat) {
-                info += a.toString();
+                info += a.toString() + "\n";
             }
 
         }
 
         if (info.equals("")) {
-            throw new ExcepcioCamping("No hi ha accessos en l'estat " + estat);
+            throw new ExcepcioCamping("No hi ha accessos en aquest estat");
         }
 
         return info;
@@ -72,7 +72,7 @@ public class LlistaAccessos implements InLlistaAccessos {
         while (itr.hasNext()) {
             Acces a = itr.next();
 
-            if (!a.getEstat())
+            if (!a.isAccessibilitat())
                 comptador++;
         }
         return comptador;

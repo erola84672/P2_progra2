@@ -88,13 +88,25 @@ public abstract class Allotjament implements InAllotjament {
      */
     @Override
     public String toString() {
-        return "Nom=" + nom +", Id=" + idAllotjament + ", estada mínima en temp " + Temp.ALTA + ": " + getEstadaMinima(Temp.ALTA) +
+        return "Nom=" + nom +", Id=" + idAllotjament + ", Estat de l'allotjament: " + estatAllotjament + ", Estat iluminació: "
+                + estatIluminacio + ", Estada mínima en temp " + Temp.ALTA + ": " + getEstadaMinima(Temp.ALTA) +
                 ", estada mínima en temp " + Temp.BAIXA + ": " + getEstadaMinima(Temp.BAIXA) + ".";
     }
 
     @Override
     public void tancarAllotjament(TascaManteniment tasca) {
-
+        switch(tasca.getTipus()){
+            case Reparacio:
+            case RevisioTecnica:
+                this.estatIluminacio = "50%";
+                break;
+            case Neteja:
+                break;
+            case Desinfeccio:
+                this.estatIluminacio = "0%";
+                break;
+        }
+        this.estatAllotjament = false;
     }
 
     @Override

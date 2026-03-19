@@ -66,7 +66,7 @@ public class LlistaAccessos implements InLlistaAccessos {
     }
 
     @Override
-    public int calculaAccessosNoAccessibles() throws ExcepcioCamping {
+    public int calculaAccessosNoAccessibles() {
         int comptador = 0;
         Iterator<Acces> itr = llistaAccessos.iterator();
 
@@ -76,14 +76,11 @@ public class LlistaAccessos implements InLlistaAccessos {
             if (!a.getEstat())
                 comptador++;
         }
-
-        //exception
-
         return comptador;
     }
 
     @Override
-    public float calculaMetresTerra() throws ExcepcioCamping {
+    public float calculaMetresTerra() {
         float metresTotals = 0;
         Iterator<Acces> itr = llistaAccessos.iterator();
 
@@ -93,9 +90,6 @@ public class LlistaAccessos implements InLlistaAccessos {
             if (a instanceof AccesTerra)
                 metresTotals += ((AccesTerra) a).getLongitud();
         }
-
-        if (metresTotals == 0)
-            throw new ExcepcioCamping("No hi ha cap accés de terra");
 
         return metresTotals;
     }

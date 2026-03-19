@@ -1,59 +1,88 @@
 package prog2.model;
-import prog2.vista.ExcepcioCamping;
 
-import java.util.ArrayList;
+import prog2.vista.ExcepcioCamping;
+import prog2.model.Acces;
 
 public class Camping implements InCamping{
     private String nom;
-    private ArrayList<Allotjament> llistaAllotjaments;
-    pri
+    private LlistaAccessos llistaAccessos;
+    private LlistaAllotjaments llistaAllotjaments;
+    private LlistaTasquesManteniment llistaTasques;
 
-    /**
-     * Constructor d'objectes de la classe Camping. Crea, a més a més, dos objectes d'ArrayList i un de LlistaReserves
-     * @param nom nom del càmping.
-     */
-    public Camping(String nom){
+    public Camping(String nom, LlistaTasquesManteniment llistaTasques, LlistaAllotjaments llistaAllotjaments, LlistaAccessos llistaAccessos){
         this.nom = nom;
-
+        this.llistaAccessos = llistaAccessos;
+        this.llistaAllotjaments = llistaAllotjaments;
+        this.llistaTasques = llistaTasques;
     }
+
     @Override
     public String getNomCamping() {
         return nom;
     }
 
+    public void setNomCamping(String nom) {
+        this.nom = nom;
+    }
+
+    public void setLlistaAllotjaments(LlistaAllotjaments llistaAllotjaments) {
+        this.llistaAllotjaments = llistaAllotjaments;
+    }
+
+    public void setLlistaAccessos(LlistaAccessos llistaAccessos) {
+        this.llistaAccessos = llistaAccessos;
+    }
+
+    public void setLlistaTasques(LlistaTasquesManteniment llistaTasques) {
+        this.llistaTasques = llistaTasques;
+    }
+
     @Override
     public String llistarAllotjaments(String estat) throws ExcepcioCamping {
-        return "";
+        return llistaAllotjaments.llistarAllotjaments(estat);
     }
 
     @Override
     public String llistarAccessos(String infoEstat) throws ExcepcioCamping {
-        return "";
+        boolean estat;
+
+        if (infoEstat.equals("Obert")) {
+            estat = true;
+        } else if (infoEstat.equals("Tancat")) {
+            estat = false;
+        } else
+            throw new ExcepcioCamping("L'estat és incorrecte");
+
+        return llistaAccessos.llistarAccessos(estat);
     }
 
     @Override
     public String llistarTasquesManteniment() throws ExcepcioCamping {
-        return "";
+        return llistaTasques.llistarTasquesManteniment();
     }
 
     @Override
     public void afegirTascaManteniment(int num, String tipus, String idAllotjament, String data, int dies) throws ExcepcioCamping {
-
+        Allotjament a = llistaAllotjaments.getAllotjament(idAllotjament);
+        llistaTasques.afegirTascaManteniment(num, tipus, a, data, dies);
+        llistaAccessos.actualitzaEstatAccessos();
     }
 
     @Override
     public void completarTascaManteniment(int num) throws ExcepcioCamping {
-
+        TascaManteniment t = llistaTasques.getTascaManteniment(num);
+        llistaTasques.completarTascaManteniment(t);
+        llistaAccessos.actualitzaEstatAccessos();
     }
 
     @Override
     public int calculaAccessosNoAccessibles() {
-        return 0;
+        return llistaAccessos.calculaAccessosNoAccessibles();
     }
 
     @Override
     public float calculaMetresTerra() {
-        return 0;
+        return llistaAccessos.calculaMetresTerra();
     }
 
     @Override

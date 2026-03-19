@@ -7,7 +7,7 @@ import prog2.vista.ExcepcioCamping;
  *
  * @author lauraigual
  */
-public interface InLlistaTasquesManteniment {
+public interface   InLlistaTasquesManteniment {
     
     /**
      * Aquest mètode crea una tasca de manteniment amb la informació passada com a paràmetres

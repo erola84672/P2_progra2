@@ -13,8 +13,7 @@ public class LlistaAccessos implements InLlistaAccessos {
     }
 
     @Override
-    public void afegirAcces(Acces acc) throws ExcepcioCamping {
-        //exception
+    public void afegirAcces(Acces acc) {
         llistaAccessos.add(acc);
     }
 

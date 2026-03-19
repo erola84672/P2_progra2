@@ -12,8 +12,8 @@ public class MobilHome extends Casa{
      * @param placesPersones quantitat de places de l'allotjament.
      * @param terrassaBarbacoa si l'allotjament té terrassa amb barbacoa o no.
      */
-    public MobilHome(String nom, String idAllotjament, String mida, int habitacions, int placesPersones, boolean terrassaBarbacoa) {
-        super(nom, idAllotjament, 5, 3, mida, habitacions, placesPersones);
+    public MobilHome(String nom, String idAllotjament, boolean estat, String iluminacio, float mida, int habitacions, int placesPersones, boolean terrassaBarbacoa) {
+        super(nom, idAllotjament, estat, iluminacio, 5, 3, mida, habitacions, placesPersones);
         this.terrassaBarbacoa = terrassaBarbacoa;
     }
 
@@ -34,7 +34,6 @@ public class MobilHome extends Casa{
     }
 
     // Sobreescriu el mètode correcteFuncionament de la classe de la qual hereta (Allotjament)
-    @Override
     public boolean correcteFuncionament() {
         return terrassaBarbacoa;
     }

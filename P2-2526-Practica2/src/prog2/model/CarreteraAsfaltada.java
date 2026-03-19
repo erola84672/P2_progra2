@@ -3,9 +3,10 @@ package prog2.model;
 public class CarreteraAsfaltada extends AccesAsfalt {
     private float pesMaxim;
 
-    public CarreteraAsfaltada(String nom, LlistaAllotjaments llistaAllotjaments, float metresQuadrats, float pesMaxim) {
-        super(nom, true, llistaAllotjaments, metresQuadrats);
+    public CarreteraAsfaltada(String nom, boolean estat, float metresQuadrats, float pesMaxim) {
+        super(nom, estat, metresQuadrats);
         this.pesMaxim = pesMaxim;
+        this.accessibilitat = true;
     }
 
     @Override

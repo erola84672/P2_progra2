@@ -18,8 +18,8 @@ public class BungalowPremium extends Bungalow{
      * @param serveisExtra si l'allotjament té serveis extra o no.
      * @param codiWifi el codi del Wifi de l'allotjament.
      */
-    public BungalowPremium(String nom, String idAllotjament, String mida, int habitacions, int placesPersones, int placesParquing, boolean terrassa, boolean tv, boolean aireFred, boolean serveisExtra, String codiWifi) {
-        super(nom, idAllotjament, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred);
+    public BungalowPremium(String nom, String idAllotjament, boolean estat, String iluminacio, float mida, int habitacions, int placesPersones, int placesParquing, boolean terrassa, boolean tv, boolean aireFred, boolean serveisExtra, String codiWifi) {
+        super(nom, idAllotjament, estat, iluminacio, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred);
         this.serveisExtra = serveisExtra;
         this.codiWifi = codiWifi;
     }

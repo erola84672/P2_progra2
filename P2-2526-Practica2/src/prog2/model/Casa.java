@@ -1,7 +1,7 @@
 package prog2.model;
 
 public abstract class Casa extends Allotjament{
-    protected String mida;
+    protected float mida;
     protected int habitacions;
     protected int placesPersones;
 
@@ -13,8 +13,8 @@ public abstract class Casa extends Allotjament{
      * @param habitacions número d'habitacions de l'allotjament.
      * @param placesPersones quantitat de places de l'allotjament
      */
-    public Casa(String nom, String idAllotjament, long estadaMinimaALTA, long estadaMinimaBAIXA,String mida, int habitacions, int placesPersones){
-        super(nom, idAllotjament, estadaMinimaALTA, estadaMinimaBAIXA);
+    public Casa(String nom, String idAllotjament, boolean estat, String iluminacio, long estadaMinimaALTA, long estadaMinimaBAIXA, float mida, int habitacions, int placesPersones){
+        super(nom, idAllotjament, estat, iluminacio, estadaMinimaALTA, estadaMinimaBAIXA);
         this.mida = mida;
         this.habitacions = habitacions;
         this.placesPersones = placesPersones;
@@ -24,7 +24,7 @@ public abstract class Casa extends Allotjament{
      * Obté la mida de l'allotjament.
      * @return la mida de l'allotjament.
      */
-    public String getMida() {
+    public float getMida() {
         return mida;
     }
 
@@ -32,7 +32,7 @@ public abstract class Casa extends Allotjament{
      * Estableix la mida de l'allotjament.
      * @param mida la mida a assignar
      */
-    public void setMida(String mida) {
+    public void setMida(float mida) {
         this.mida = mida;
     }
 

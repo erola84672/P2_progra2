@@ -6,7 +6,7 @@ import prog2.vista.ExcepcioCamping;
 /**
  * Interfície que defineix les operacions bàsiques d'una llista d'allotjaments.
  */
-public interface InLlistaAllotjaments {
+    public interface  InLlistaAllotjaments {
     
     /**
      * Afegeix un allotjament rebut per paràmetre a la llista d'allotjaments.

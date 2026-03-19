@@ -3,8 +3,8 @@ package prog2.model;
 public abstract class AccesAsfalt extends Acces {
     private float metresQuadrats;
 
-    public AccesAsfalt(String nom, boolean accessibilitat, LlistaAllotjaments llistaAllotjaments, float metresQuadrats) {
-        super(nom, accessibilitat, llistaAllotjaments);
+    public AccesAsfalt(String nom,boolean estat, float metresQuadrats) {
+        super(nom, estat);
         this.metresQuadrats = metresQuadrats;
     }
 

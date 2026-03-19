@@ -14,8 +14,8 @@ public class Glamping extends Casa{
      * @param material material del qual està fet l'allotjament.
      * @param casaMascota si l'allotjament té casa per mascottes o no.
      */
-    public Glamping(String nom, String idAllotjament, String mida, int habitacions, int placesPersones, String material, boolean casaMascota) {
-        super(nom, idAllotjament, 3, 3, mida, habitacions, placesPersones);
+    public Glamping(String nom, String idAllotjament, boolean estat, String iluminacio, float mida, int habitacions, int placesPersones, String material, boolean casaMascota) {
+        super(nom, idAllotjament, estat, iluminacio, 3, 3, mida, habitacions, placesPersones);
         this.material = material;
         this.casaMascota = casaMascota;
     }
@@ -53,7 +53,6 @@ public class Glamping extends Casa{
     }
 
     // Sobreescriu el mètode correcteFuncionament de la classe de la qual hereta (Allotjament)
-    @Override
     public boolean correcteFuncionament() {
         return casaMascota;
     }

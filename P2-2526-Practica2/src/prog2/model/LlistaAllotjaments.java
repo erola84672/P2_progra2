@@ -11,8 +11,7 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
     }
 
     @Override
-    public void afegirAllotjament(Allotjament allotjament) throws ExcepcioCamping {
-        //exception
+    public void afegirAllotjament(Allotjament allotjament) {
         llistaAllotjaments.add(allotjament);
     }
 
@@ -26,17 +25,24 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
     }
 
     @Override
-    public String llistarAllotjaments(String estat) throws ExcepcioCamping {
+    public String llistarAllotjaments(String infoEstat) throws ExcepcioCamping {
         Iterator<Allotjament> itr = llistaAllotjaments.iterator();
         String info = "";
+        boolean estat;
+
+        if (infoEstat.equals("Obert")) {
+            estat = true;
+        } else if (infoEstat.equals("Tancat")) {
+            estat = false;
+        } else
+            throw new ExcepcioCamping("L'estat és incorrecte");
 
         while (itr.hasNext()) {
             Allotjament a = itr.next();
 
-            if (a.getEstatAllotjament().equals(estat)) {
+            if (a.getEstatAllotjament() == estat) {
                 info += a.toString();
             }
-
         }
 
         if (info.equals("")) {
@@ -49,13 +55,13 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
     @Override
     public boolean containsAllotjamentOperatiu() {
         Iterator<Allotjament> itr = llistaAllotjaments.iterator();
-        String estat = "Operatiu";
+        boolean estat = true;
         boolean trobat = false;
 
         while (itr.hasNext() && !trobat) {
             Allotjament a = itr.next();
 
-            if (a.getEstatAllotjament().equals(estat)) {
+            if (a.getEstatAllotjament() == estat) {
                 trobat = true;
             }
         }

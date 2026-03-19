@@ -5,7 +5,7 @@ public abstract class Allotjament implements InAllotjament {
     protected String idAllotjament;
     protected long estadaMinimaALTA;
     protected long estadaMinimaBAIXA;
-    protected String estatAllotjament;
+    protected boolean estatAllotjament;
     protected String estatIluminacio;
 
     /**
@@ -15,13 +15,13 @@ public abstract class Allotjament implements InAllotjament {
      * @param estadaMinimaALTA estada mínima de l'allotjament en temporada alta.
      * @param estadaMinimaBAIXA estada mínima de l'allotjament en temporada baixa.
      */
-    public Allotjament(String nom, String idAllotjament, long estadaMinimaALTA, long estadaMinimaBAIXA) {
+    public Allotjament(String nom, String idAllotjament, boolean estat, String iluminacio, long estadaMinimaALTA, long estadaMinimaBAIXA) {
         this.nom = nom;
         this.idAllotjament = idAllotjament;
         this.estadaMinimaBAIXA = estadaMinimaBAIXA;
         this.estadaMinimaALTA = estadaMinimaALTA;
-        this.estatIluminacio = "100%";
-        this.estatAllotjament = "Operatiu";
+        this.estatIluminacio = iluminacio;
+        this.estatAllotjament = estat;
     }
 
     @Override
@@ -52,11 +52,11 @@ public abstract class Allotjament implements InAllotjament {
         return estatIluminacio;
     }
 
-    public void setEstatAllotjament(String estat){
+    public void setEstatAllotjament(boolean estat){
         this.estatAllotjament = estat;
     }
 
-    public String getEstatAllotjament(){
+    public boolean getEstatAllotjament(){
         return estatAllotjament;
     }
 
@@ -99,7 +99,7 @@ public abstract class Allotjament implements InAllotjament {
 
     @Override
     public void obrirAllotjament() {
-        this.estatAllotjament = "Operatiu";
+        this.estatAllotjament = true;
         this.estatIluminacio = "100%";
     }
 }

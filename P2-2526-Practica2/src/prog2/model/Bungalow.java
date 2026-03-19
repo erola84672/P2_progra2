@@ -18,8 +18,8 @@ public class Bungalow extends Casa{
      * @param tv si l'allotjament té televisió o no.
      * @param aireFred si l'allotjament té aire fred o no.
      */
-    public Bungalow(String nom, String idAllotjament, String mida, int habitacions, int placesPersones, int placesParquing, boolean terrassa, boolean tv, boolean aireFred) {
-        super(nom, idAllotjament, 7, 4, mida, habitacions, placesPersones);
+    public Bungalow(String nom, String idAllotjament, boolean estat, String iluminacio, float mida, int habitacions, int placesPersones, int placesParquing, boolean terrassa, boolean tv, boolean aireFred) {
+        super(nom, idAllotjament, estat, iluminacio, 7, 4, mida, habitacions, placesPersones);
         this.placesParquing = placesParquing;
         this.terrassa = terrassa;
         this.tv = tv;
@@ -91,7 +91,6 @@ public class Bungalow extends Casa{
     }
 
     // Sobreescriu el mètode correcteFuncionament de la classe de la qual hereta (Allotjament)
-    @Override
     public boolean correcteFuncionament() {
         return aireFred;
     }

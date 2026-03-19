@@ -2,39 +2,36 @@ package prog2.model;
 
 import prog2.vista.ExcepcioCamping;
 
-import java.util.Iterator;
-
 public abstract class Acces implements InAcces{
     private String nom;
-    private boolean accessibilitat;
+    protected boolean accessibilitat;
     private boolean estat;
     private LlistaAllotjaments llistaAllotjaments;
 
-    public Acces(String nom, boolean accessibilitat, LlistaAllotjaments llistaAllotjaments) {
+    public Acces(String nom, boolean estat) {
         this.nom = nom;
-        this.accessibilitat = accessibilitat;
-        this.llistaAllotjaments = llistaAllotjaments;
-        this.estat = true;
+        this.llistaAllotjaments = new LlistaAllotjaments();
+        this.estat = estat;
     }
 
     @Override
     public void afegirAllotjament(Allotjament allotjament) {
-
+        llistaAllotjaments.afegirAllotjament(allotjament);
     }
 
     @Override
     public void tancarAcces() {
-
+        this.estat = false;
     }
 
     @Override
     public void obrirAcces() {
-
+        this.estat = true;
     }
 
     @Override
     public boolean isAccessibilitat() {
-        return false;
+        return accessibilitat;
     }
 
     @Override
@@ -66,8 +63,15 @@ public abstract class Acces implements InAcces{
 
     @Override
     public String toString() {
-        String info = "Nom: " + nom + ", Accessibilitat: " + accessibilitat + ", Estat: " + estat + ", Allotjaments: "
-                + llistaAllotjaments.llistarAllotjaments("Operatiu");
+        String info = "Nom: " + nom + ", Accessibilitat: " + accessibilitat + ", Estat: " + estat + ", Allotjaments: ";
+
+        try {
+            info += llistaAllotjaments.llistarAllotjaments("Obert");
+        } catch (ExcepcioCamping e){}
+
+        try {
+            info += llistaAllotjaments.llistarAllotjaments("Tancat");
+        } catch (ExcepcioCamping e) {}
 
         return info;
     }

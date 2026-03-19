@@ -1,7 +1,7 @@
 package prog2.model;
 
 import prog2.vista.ExcepcioCamping;
-import prog2.model.Acces;
+import java.io.*;
 
 public class Camping implements InCamping{
     private String nom;
@@ -87,6 +87,28 @@ public class Camping implements InCamping{
 
     @Override
     public void save(String camiDesti) throws ExcepcioCamping {
+        File file = new File(camiDesti);
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try {
+            fos = new FileOutputStream(file);
+            oos = new ObjectOutputStream(fos);
+            oos.writeObject(this);
+
+        } catch(FileNotFoundException e){
+            throw new ExcepcioCamping("El fitxer no existeix2");
+        }catch(IOException e){
+            throw new ExcepcioCamping("El fitxer no IO");
+        }
+        finally{
+            try{
+            fos.close();
+            oos.close();}
+            catch(IOException e){
+                throw new ExcepcioCamping("IO TANCANT");
+            }
+        }
+        if(!file.exists()) throw new ExcepcioCamping("El fitxer no existeix");
 
     }
 

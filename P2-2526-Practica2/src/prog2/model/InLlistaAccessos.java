@@ -11,7 +11,7 @@ public interface InLlistaAccessos {
     /**
      * Afegeix un accés rebut per paràmetre a la llista d'accessos.
      * @param acc Objecte de tipus Acces.
-     * @throws prog2.vista.ExcepcioCamping Aquest mètode podria llançar una excepció si fos necessari.
+     * @throws prog2.vista.ExcepcioCamping Aquest mètode podria llançar una excepció si fos nec essari.
      */
     public void afegirAcces(Acces acc) throws ExcepcioCamping;
     

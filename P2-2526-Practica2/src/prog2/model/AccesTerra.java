@@ -3,8 +3,8 @@ package prog2.model;
 public abstract class AccesTerra extends Acces {
     private float longitud;
 
-    public AccesTerra(String nom, boolean accessibilitat, LlistaAllotjaments llistaAllotjaments, float longitud) {
-        super(nom, accessibilitat, llistaAllotjaments);
+    public AccesTerra(String nom, boolean estat, float longitud) {
+        super(nom, estat);
         this.longitud = longitud;
     }
 

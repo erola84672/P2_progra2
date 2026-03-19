@@ -12,8 +12,8 @@ public class Parcela extends Allotjament{
      * @param metres mida de l'allotjament.
      * @param connexioElectrica si l'allotjament té connexió elèctrica o no.
      */
-    public Parcela(String nom, String idAllotjament, float metres, boolean connexioElectrica){
-        super(nom, idAllotjament, 4, 2);
+    public Parcela(String nom, String idAllotjament, boolean estat, String iluminacio, float metres, boolean connexioElectrica){
+        super(nom, idAllotjament, estat, iluminacio, 4, 2);
         this.connexioElectrica = connexioElectrica;
         this.metres = metres;
     }
@@ -35,7 +35,6 @@ public class Parcela extends Allotjament{
     }
 
     // Sobreescriu el mètode toString de la classe de la qual hereta (Allotjament)
-    @Override
     public boolean correcteFuncionament() {
         return connexioElectrica;
     }

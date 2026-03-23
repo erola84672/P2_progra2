@@ -176,11 +176,13 @@ public class VistaCamping implements Serializable{
                     // Fem les accions necessàries
                     switch(opcio) {
                         case MENU_S1_OPCIO1:
+                            System.out.print("Allotjaments: ");
                             try {
-                                System.out.println("Allotjaments: " + camping.llistarAllotjaments("Operatiu") + camping.llistarAllotjaments("No operatiu"));
-                            } catch (ExcepcioCamping e) {
-                                System.out.println(e.getMessage());
-                            }
+                                System.out.print(camping.llistarAllotjaments("Operatiu"));
+                            } catch (ExcepcioCamping e) {}
+                            try {
+                                System.out.println(camping.llistarAllotjaments("No operatiu"));
+                            } catch (ExcepcioCamping e) {}
                             break;
                         case MENU_S1_OPCIO2:
                             try {

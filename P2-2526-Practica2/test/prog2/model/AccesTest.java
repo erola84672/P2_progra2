@@ -39,5 +39,20 @@ public class AccesTest {
         assertTrue(acces1.getAAllotjaments() instanceof LlistaAllotjaments);
     }
     @Test
+    void comprovarGetSet() {
+        acces1.setNom("Acc1");
+        acces2.setNom("Acc2");
+        assertEquals(acces1.getNom(), "Acc1");
+        assertEquals(acces2.getNom(), "Acc2");
+
+        acces1.setEstat(false);
+        acces2.setEstat(true);
+        assertTrue(acces2.getEstat());
+        assertFalse(acces1.getEstat());
+    }
+    @Test
+    void comprovarToString() {
+
+    }
 
 }

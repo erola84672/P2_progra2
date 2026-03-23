@@ -6,7 +6,7 @@ public class CarreteraAsfaltada extends AccesAsfalt {
     public CarreteraAsfaltada(String nom, boolean estat, float metresQuadrats, float pesMaxim) {
         super(nom, estat, metresQuadrats);
         this.pesMaxim = pesMaxim;
-        this.accessibilitat = true;
+        this.accessibilitat = isAccessibilitat();
     }
 
     @Override

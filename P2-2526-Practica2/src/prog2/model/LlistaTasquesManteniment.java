@@ -15,7 +15,7 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment, Ser
 
     @Override
     public void afegirTascaManteniment(int num, String tipus, Allotjament allotjament, String data, int dies) throws ExcepcioCamping {
-        if (allotjament.getEstatAllotjament() == false) {
+        if (!allotjament.isOperatiu()) {
             throw new ExcepcioCamping("L'allotjament ja té una tasca programada");
         }
 

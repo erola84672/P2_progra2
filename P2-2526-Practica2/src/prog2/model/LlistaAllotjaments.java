@@ -42,7 +42,7 @@ public class LlistaAllotjaments implements InLlistaAllotjaments, Serializable {
         while (itr.hasNext()) {
             Allotjament a = itr.next();
 
-            if (a.getEstatAllotjament() == estat) {
+            if (a.isOperatiu() == estat) {
                 info += a.toString() + "\n";
             }
         }
@@ -63,7 +63,7 @@ public class LlistaAllotjaments implements InLlistaAllotjaments, Serializable {
         while (itr.hasNext() && !trobat) {
             Allotjament a = itr.next();
 
-            if (a.getEstatAllotjament() == estat) {
+            if (a.isOperatiu() == estat) {
                 trobat = true;
             }
         }

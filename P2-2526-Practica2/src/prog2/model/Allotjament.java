@@ -50,7 +50,7 @@ public abstract class Allotjament implements InAllotjament, Serializable {
         this.estatIluminacio = estat;
     }
 
-    public String getEstatIluminacio(){
+    public String getIluminacio(){
         return estatIluminacio;
     }
 
@@ -58,7 +58,7 @@ public abstract class Allotjament implements InAllotjament, Serializable {
         this.estatAllotjament = estat;
     }
 
-    public boolean getEstatAllotjament(){
+    public boolean isOperatiu(){
         return estatAllotjament;
     }
 

@@ -6,7 +6,7 @@ public class CarreteraTerra extends AccesTerra {
     public CarreteraTerra(String nom, boolean estat, float longitud, float amplada) {
         super(nom, estat, longitud);
         this.amplada = amplada;
-        this.accessibilitat = true;
+        this.accessibilitat = isAccessibilitat();
     }
 
     @Override

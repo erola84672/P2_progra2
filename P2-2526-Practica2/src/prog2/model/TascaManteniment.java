@@ -72,7 +72,7 @@ public class TascaManteniment implements InTascaManteniment, Serializable{
 
     @Override
     public String getIluminacioAllotjament() {
-        return allotjament.getEstatIluminacio();
+        return allotjament.getIluminacio();
     }
 
     @Override

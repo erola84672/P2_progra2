@@ -2,7 +2,9 @@ package prog2.model;
 
 import prog2.vista.ExcepcioCamping;
 
-public abstract class Acces implements InAcces{
+import java.io.Serializable;
+
+public abstract class Acces implements InAcces, Serializable {
     private String nom;
     protected boolean accessibilitat;
     private boolean estat;
@@ -30,9 +32,7 @@ public abstract class Acces implements InAcces{
     }
 
     @Override
-    public boolean isAccessibilitat() {
-        return accessibilitat;
-    }
+    public abstract boolean isAccessibilitat();
 
     @Override
     public String getNom() {

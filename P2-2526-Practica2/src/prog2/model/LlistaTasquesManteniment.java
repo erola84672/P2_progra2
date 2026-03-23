@@ -1,10 +1,12 @@
 package prog2.model;
 
 import prog2.vista.ExcepcioCamping;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class LlistaTasquesManteniment implements InLlistaTasquesManteniment{
+public class LlistaTasquesManteniment implements InLlistaTasquesManteniment, Serializable {
     private ArrayList<TascaManteniment> llistaTasques;
 
     public LlistaTasquesManteniment() {

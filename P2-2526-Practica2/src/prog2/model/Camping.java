@@ -3,7 +3,7 @@ package prog2.model;
 import prog2.vista.ExcepcioCamping;
 import java.io.*;
 
-public class Camping implements InCamping{
+public class Camping implements InCamping, Serializable{
     private String nom;
     private LlistaAccessos llistaAccessos;
     private LlistaAllotjaments llistaAllotjaments;
@@ -93,11 +93,14 @@ public class Camping implements InCamping{
             fos = new FileOutputStream(file);
             oos = new ObjectOutputStream(fos);
             oos.writeObject(this);
+            System.out.println("Càmping guardat correctament");
 
-        } catch(FileNotFoundException e){
-            throw new ExcepcioCamping("El fitxer no existeix2");
+        //} catch(FileNotFoundException e){
+            //throw new ExcepcioCamping("El fitxer no existeix2");
         }catch(IOException e){
+            e.printStackTrace();
             throw new ExcepcioCamping("El fitxer no IO");
+
         }
         finally{
             try{
@@ -107,7 +110,7 @@ public class Camping implements InCamping{
                 throw new ExcepcioCamping("IO TANCANT");
             }
         }
-        if(!file.exists()) throw new ExcepcioCamping("El fitxer no existeix");
+        //if(!file.exists()) throw new ExcepcioCamping("El fitxer no existeix");
 
     }
 

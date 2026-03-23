@@ -5,7 +5,7 @@ import prog2.model.TascaManteniment;
 
 import java.io.*;
 import java.util.Scanner;
-public class VistaCamping {
+public class VistaCamping implements Serializable{
     private Camping camping;
     static private enum OpcionsMenuPrincipal {MENU_PRINCIPAL_SUBMENU1, MENU_PRINCIPAL_OPCIO1,MENU_PRINCIPAL_OPCIO2,MENU_PRINCIPAL_OPCIO3, MENU_PRINCIPAL_OPCIO4, MENU_PRINCIPAL_OPCIO5, MENU_PRINCIPAL_OPCIO6,MENU_PRINCIPAL_SORTIR};
     static private enum OpcionsSubmenu1 {MENU_S1_OPCIO1,MENU_S1_OPCIO2,MENU_S1_OPCIO3, MENU_S1_OPCIO4, MENU_S1_OPCIO5, MENU_S1_OPCIO6, MENU_S1_SORTIR};
@@ -115,11 +115,11 @@ public class VistaCamping {
                     File file = new File("camping.txt");
                     FileInputStream fis = null;
                     ObjectInputStream ois = null;
-                    VistaCamping campingai = null;
+                    Camping camping2 = null;
                     try {
                         fis = new FileInputStream(file);
                         ois = new ObjectInputStream(fis);
-                        campingai = (VistaCamping) ois.readObject();
+                        camping2 = (Camping) ois.readObject();
 
                     } catch(FileNotFoundException e){
                         System.out.println("Elfitxernoexisteix");
@@ -136,6 +136,7 @@ public class VistaCamping {
                             System.out.println("IO TANCANT");
                         }
                     }
+                    camping = camping2;
                     break;
                 case MENU_PRINCIPAL_SUBMENU1:
                     // Cridem el métode de gestió del menú secundari
